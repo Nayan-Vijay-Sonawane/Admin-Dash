@@ -4,4 +4,6 @@ const API = axios.create({
     baseURL: "https://jsonplaceholder.typicode.com"
 });
 
-export const getUsers = () => API.get("/users");
+const getUsers = () => API.get("/users");
+
+export default getUsers;
