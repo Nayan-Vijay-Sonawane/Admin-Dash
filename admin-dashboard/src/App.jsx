@@ -1,12 +1,10 @@
+import AppRoutes from './routes/AppRoutes';
 import './App.css'
-import Layout from './components/layout/Layout';
 function App() {
 
   return (
-    <>
-      <Layout/>
-    </>
+    <AppRoutes/>
   )
 }
 
-export default App
+export default App;
