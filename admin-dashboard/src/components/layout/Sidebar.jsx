@@ -17,7 +17,7 @@ const styles = {
   sidebar: {
     width: "200px",
     height: "100vh",
-    background: "#111827",
+    background: "#595e69",
     color: "white",
     padding: "20px"
   }
