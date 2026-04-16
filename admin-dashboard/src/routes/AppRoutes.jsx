@@ -11,7 +11,10 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public route: Login */}
         <Route path="/login" element={<Login />} />
+
+        {/* Protected routes inside Layout */}
         <Route
           path="/*"
           element={
