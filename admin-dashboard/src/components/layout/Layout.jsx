@@ -1,17 +1,24 @@
-import Sidebar from './Sidebar.jsx';
-import Navbar from './Navbar.jsx';
+// src/components/layout/Layout.jsx
+import { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false);
 
-    return(
-        <div className="flex">
-            <Sidebar/>
-        <div className="flex-1">
-            <Navbar/>
-        <main className="p-4">{children}</main>
-        </div>
-        </div>
-    );
+  useEffect(() => {
+    document.body.className = darkMode ? "dark" : "";
+  }, [darkMode]);
+
+  return (
+    <div className="flex">
+      <Sidebar />
+      <div className="main-content">
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <main>{children}</main>
+      </div>
+    </div>
+  );
 };
 
 export default Layout;

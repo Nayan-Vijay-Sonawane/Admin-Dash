@@ -1,27 +1,37 @@
-import { Link } from 'react-router-dom';
+// src/components/layout/Sidebar.jsx
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-    return(
-        <div style={styles.sidebar}>
-            <h2>Admin</h2>
-            <nav>
-                <Link to="/dashboard">Dashboard</Link><br/>
-                <Link to="/users">Users</Link><br/>
-                <Link to="/orders">Orders</Link>
-            </nav>
-        </div>
-    );
-};
+  const menuItems = [
+    { name: "Dashboard", path: "/dashboard" },
+    { name: "Users", path: "/users" },
+    { name: "Orders", path: "/orders" },
+    { name: "Settings", path: "/settings" },
+  ];
 
-const styles = {
-  sidebar: {
-    width: "200px",
-    height: "100vh",
-    background: "#595e69",
-    color: "white",
-    padding: "20px"
-  }
+  return (
+    <div className="sidebar">
+      <h2>Admin</h2>
+      <nav>
+        {menuItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            style={({ isActive }) => ({
+              display: "block",
+              padding: "10px 0",
+              color: isActive ? "#ffd700" : "#fff",
+              textDecoration: "none",
+              fontWeight: isActive ? "bold" : "normal",
+              transition: "all 0.2s ease",
+            })}
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </nav>
+    </div>
+  );
 };
 
 export default Sidebar;
-

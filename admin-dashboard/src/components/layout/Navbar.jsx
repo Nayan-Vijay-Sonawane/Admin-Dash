@@ -1,19 +1,23 @@
 // src/components/layout/Navbar.jsx
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   return (
-    <div style={styles.nav}>
+    <div className="navbar">
       <h3>Admin Dashboard</h3>
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        style={{
+          padding: "6px 12px",
+          borderRadius: "4px",
+          border: "none",
+          cursor: "pointer",
+          background: darkMode ? "#ffd700" : "#595e69",
+          color: darkMode ? "#000" : "#fff",
+        }}
+      >
+        {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
     </div>
   );
-};
-
-const styles = {
-  nav: {
-    background: "#fff",
-    padding: "10px",
-    borderBottom: "1px solid #ddd", // Fixed typo
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-  },
 };
 
 export default Navbar;
